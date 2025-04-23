@@ -7,7 +7,22 @@ const TaskModel = {
             [task.title, task.description, task.status, task.due_date],
             response
         )
+    },
+    getAll:(response) =>{
+        db.query(
+            'SELECT * FROM tasks', response);
+    },
+    getById:(id, response) =>{
+       
+        db.query(
+            'SELECT * FROM tasks where id = ?',[id], response
+        )
+
+        // db.query(
+        //     "SELECT * FROM tasks where LOWER(title) = ?",['sleep'],response,
+        // )
     }
-}
+};
+   
 
 module.exports = TaskModel;
