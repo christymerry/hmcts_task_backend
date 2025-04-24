@@ -21,6 +21,13 @@ const TaskModel = {
         // db.query(
         //     "SELECT * FROM tasks where LOWER(title) = ?",['sleep'],response,
         // )
+    },
+    updateById:(id,updatetask,response) =>{
+console.log(id);
+        db.query(
+            'UPDATE tasks SET title = ?,description =?, status = ?, due_date = ? WHERE id = ?',[updatetask.title,updatetask.description,updatetask.status,updatetask.due_date,id],response
+        )
+
     }
 };
    
