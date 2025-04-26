@@ -54,7 +54,7 @@ exports.updateTaskById =(req,res) =>{
     const id = req.params.id;
     console.log(req.body)
 
-    
+
 
     Task.updateById(id,req.body,(err,result)=>{
         if(err){
@@ -68,5 +68,21 @@ exports.updateTaskById =(req,res) =>{
         }
 
     })
+
+}
+
+exports.deleteTask =(req,res) =>{
+    const id = req.params.id;
+    Task.delete(id,(err,result) =>{
+        if(err){
+            return res.status(500).send(err.message);
+        }
+        else{
+            res.status(200).json({
+                message:"Deleted Successfully"
+            })
+        }
+
+    }) 
 
 }

@@ -28,6 +28,11 @@ console.log(id);
             'UPDATE tasks SET title = ?,description =?, status = ?, due_date = ? WHERE id = ?',[updatetask.title,updatetask.description,updatetask.status,updatetask.due_date,id],response
         )
 
+    },
+    delete:(id,response)=>{
+       db.query(
+        'Delete from tasks where id = ?',[id],response
+       )
     }
 };
    
